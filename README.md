@@ -19,7 +19,7 @@ rm -rf data/databases/graph.db
 ```
 
 ```
-bin/neo4j-import --into data/databases/graph.db \
+time bin/neo4j-import --into data/databases/graph.db \
   --nodes:Region trainbenchmark/regions.csv \
   --nodes:Route trainbenchmark/routes.csv \
   --nodes:Segment:TrackElement trainbenchmark/segments.csv \
