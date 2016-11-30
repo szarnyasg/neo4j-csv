@@ -1,0 +1,15 @@
+import-cypher -o trainbenchmark/regions.csv MATCH (n:Region) RETURN ID(n) AS `:ID`
+import-cypher -o trainbenchmark/routes.csv MATCH (n:Route) RETURN ID(n) AS `:ID`, n.active AS `active`
+import-cypher -o trainbenchmark/segments.csv MATCH (n:Segment) RETURN ID(n) AS `:ID`, n.length
+import-cypher -o trainbenchmark/semaphores.csv MATCH (n:Semaphore) RETURN ID(n) AS `:ID`, n.signal AS signal
+import-cypher -o trainbenchmark/sensors.csv MATCH (n:Sensor) RETURN ID(n) AS `:ID`
+import-cypher -o trainbenchmark/switches.csv MATCH (n:Switch) RETURN ID(n) AS `:ID`, n.currentPosition
+import-cypher -o trainbenchmark/switchPositions.csv MATCH (n:SwitchPosition) RETURN ID(n) AS `:ID`, n.position
+
+import-cypher -o trainbenchmark/connectsTo.csv MATCH (n)-[:connectsTo]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/entry.csv MATCH (n)-[:entry]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/exit.csv MATCH (n)-[:exit]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/follows.csv MATCH (n)-[:follows]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/monitoredBy.csv MATCH (n)-[:monitoredBy]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/requires.csv MATCH (n)-[:requires]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
+import-cypher -o trainbenchmark/target.csv MATCH (n)-[:target]->(m) RETURN ID(n) AS `:START_ID`, ID(m) AS `:END_ID`
